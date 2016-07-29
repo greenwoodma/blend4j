@@ -14,6 +14,7 @@ public class HistoryContents extends GalaxyObject {
   private int hid;
   private String historyContentType = "dataset";
   private String state;
+  private boolean visible = false;
 
   public String getName() {
     return name;
@@ -73,6 +74,14 @@ public class HistoryContents extends GalaxyObject {
     this.state = state;
   }
 
+  public boolean isVisible() {
+    return visible;
+  }
+
+  public void setVisible(boolean visible) {
+    this.visible = visible;
+  }
+
   @Override
   public int hashCode() {
     return Objects.hashCode(deleted, hid, historyContentType, name, purged, state, type);
@@ -89,6 +98,7 @@ public class HistoryContents extends GalaxyObject {
           Objects.equal(name, other.name) && 
           Objects.equal(purged, other.purged) &&
           Objects.equal(state, other.state) &&
+          Objects.equal(visible, other.visible) &&
           Objects.equal(type, other.type);
     }
     
