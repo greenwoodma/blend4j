@@ -39,7 +39,7 @@ public class WorkflowInputs {
     this.inputs.put(inputName, workflowInput);
   }
 
-  @JsonProperty("ds_map")
+  @JsonProperty("inputs")
   public Map<String, WorkflowInput> getInputs() {
     return inputs;
   }

@@ -35,10 +35,12 @@ class WorkflowsClientImpl extends Client implements WorkflowsClient {
     return webResource.get(String.class);
   }
 
+  @Deprecated
   public ClientResponse runWorkflowResponse(WorkflowInputs workflowInputs) {
     return super.create(workflowInputs);
   }
 
+  @Deprecated
   public WorkflowOutputs runWorkflow(final WorkflowInputs workflowInputs) {
     return runWorkflowResponse(workflowInputs).getEntity(WorkflowOutputs.class);
   }
@@ -49,7 +51,7 @@ class WorkflowsClientImpl extends Client implements WorkflowsClient {
   }
 
   public WorkflowInvokcationState invokeWorkflow(final WorkflowInputs workflowInputs) {
-    return runWorkflowResponse(workflowInputs).getEntity(WorkflowInvokcationState.class);
+    return invokeWorkflowResponse(workflowInputs).getEntity(WorkflowInvokcationState.class);
   }
 
   public ClientResponse importWorkflowResponse(final String json) {
