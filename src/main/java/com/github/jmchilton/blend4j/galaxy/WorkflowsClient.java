@@ -5,7 +5,7 @@ import java.util.List;
 import com.github.jmchilton.blend4j.galaxy.beans.Workflow;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowDetails;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInputs;
-import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvokcationState;
+import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvocation;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowOutputs;
 import com.sun.jersey.api.client.ClientResponse;
 
@@ -28,7 +28,9 @@ public interface WorkflowsClient {
   
   ClientResponse invokeWorkflowResponse(WorkflowInputs workflowInputs);
   
-  WorkflowInvokcationState invokeWorkflow(WorkflowInputs workflowInputs);
+  WorkflowInvocation invokeWorkflow(WorkflowInputs workflowInputs);
+  
+  WorkflowInvocation showInvocation(String workflowId, String invocationId);
   
   /**
    * Deletes the workflow with the given id (this is irreversible). This will

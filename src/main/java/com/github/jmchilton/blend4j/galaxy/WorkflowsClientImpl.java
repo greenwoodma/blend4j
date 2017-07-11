@@ -7,7 +7,7 @@ import org.codehaus.jackson.type.TypeReference;
 import com.github.jmchilton.blend4j.galaxy.beans.Workflow;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowDetails;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInputs;
-import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvokcationState;
+import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvocation;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowOutputs;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -50,8 +50,14 @@ class WorkflowsClientImpl extends Client implements WorkflowsClient {
     return super.create(webResource, workflowInputs);
   }
 
-  public WorkflowInvokcationState invokeWorkflow(final WorkflowInputs workflowInputs) {
-    return invokeWorkflowResponse(workflowInputs).getEntity(WorkflowInvokcationState.class);
+  public WorkflowInvocation invokeWorkflow(final WorkflowInputs workflowInputs) {
+    return invokeWorkflowResponse(workflowInputs).getEntity(WorkflowInvocation.class);
+  }
+  
+  public WorkflowInvocation showInvocation(String workflowId, String invocationId) {
+	  ///GET to api/workflows/{workflow_id}/invocations/{invocation_id}
+	  WebResource webResource = getWebResource().path(workflowId).path("invocations").path(invocationId);
+	  return super.getResponse(webResource).getEntity(WorkflowInvocation.class);
   }
 
   public ClientResponse importWorkflowResponse(final String json) {
