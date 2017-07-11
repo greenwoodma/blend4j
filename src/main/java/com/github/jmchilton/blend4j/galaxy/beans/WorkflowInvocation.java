@@ -62,7 +62,7 @@ public class WorkflowInvocation {
 	}
 	
 	
-	public Date getUpdateTime() {
+	public String getUpdateTime() {
 		return updateTime;
 	}
 	
