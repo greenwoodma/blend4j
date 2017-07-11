@@ -6,6 +6,7 @@ import com.github.jmchilton.blend4j.galaxy.beans.Workflow;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowDetails;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInputs;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvocation;
+import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvocationInputs;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowOutputs;
 import com.sun.jersey.api.client.ClientResponse;
 
@@ -26,9 +27,9 @@ public interface WorkflowsClient {
   @Deprecated
   WorkflowOutputs runWorkflow(WorkflowInputs workflowInputs);
   
-  ClientResponse invokeWorkflowResponse(WorkflowInputs workflowInputs);
+  ClientResponse invokeWorkflowResponse(WorkflowInvocationInputs workflowInputs);
   
-  WorkflowInvocation invokeWorkflow(WorkflowInputs workflowInputs);
+  WorkflowInvocation invokeWorkflow(WorkflowInvocationInputs workflowInputs);
   
   WorkflowInvocation showInvocation(String workflowId, String invocationId);
   

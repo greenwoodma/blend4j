@@ -8,6 +8,7 @@ import com.github.jmchilton.blend4j.galaxy.beans.Workflow;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowDetails;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInputs;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvocation;
+import com.github.jmchilton.blend4j.galaxy.beans.WorkflowInvocationInputs;
 import com.github.jmchilton.blend4j.galaxy.beans.WorkflowOutputs;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -45,12 +46,12 @@ class WorkflowsClientImpl extends Client implements WorkflowsClient {
     return runWorkflowResponse(workflowInputs).getEntity(WorkflowOutputs.class);
   }
   
-  public ClientResponse invokeWorkflowResponse(WorkflowInputs workflowInputs) {
+  public ClientResponse invokeWorkflowResponse(WorkflowInvocationInputs workflowInputs) {
 	WebResource webResource = getWebResource().path(workflowInputs.getWorkflowId()).path("invocations");
     return super.create(webResource, workflowInputs);
   }
 
-  public WorkflowInvocation invokeWorkflow(final WorkflowInputs workflowInputs) {
+  public WorkflowInvocation invokeWorkflow(final WorkflowInvocationInputs workflowInputs) {
     return invokeWorkflowResponse(workflowInputs).getEntity(WorkflowInvocation.class);
   }
   

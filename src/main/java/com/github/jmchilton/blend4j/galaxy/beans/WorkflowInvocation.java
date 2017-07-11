@@ -1,9 +1,5 @@
 package com.github.jmchilton.blend4j.galaxy.beans;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.UUID;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
